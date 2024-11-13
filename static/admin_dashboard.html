@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+</head>
+<body>
+    <h2>Dashboard Admin - Konfirmasi Pembayaran</h2>
+    <ul id="booking-list"></ul>
+
+    <script>
+        fetch('/admin/dashboard')
+            .then(response => response.json())
+            .then(bookings => {
+                const list = document.getElementById('booking-list');
+                bookings.forEach(booking => {
+                    const item = document.createElement('li');
+                    item.innerHTML = `
+                        <p>Booking ID: ${booking.id}</p>
+                        <p>Hotel ID: ${booking.hotel_id}</p>
+                        <p>User ID: ${booking.user_id}</p>
+                        <button onclick="confirmPayment(${booking.id})">Konfirmasi Pembayaran</button>
+                    `;
+                    list.appendChild(item);
+                });
+            });
+
+        function confirmPayment(bookingId) {
+            fetch(`/admin/confirm_payment?booking_id=${bookingId}`, { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    location.reload();
+                });
+        }
+    </script>
+</body>
+</html>

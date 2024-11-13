@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+</head>
+<body>
+    <h1>Pembayaran</h1>
+    <form id="payment-form">
+        <label>Nomor Kartu:</label>
+        <input type="text" name="card_number" required>
+        <br>
+        <label>Nama Pemilik Kartu:</label>
+        <input type="text" name="card_holder" required>
+        <br>
+        <button type="submit">Bayar</button>
+    </form>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            fetch('/payment', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    window.location.href = "/hotels";
+                });
+        });
+    </script>
+</body>
+</html>

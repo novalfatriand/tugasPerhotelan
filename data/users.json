@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "username" : "admin",
+        "password" : "admin123",
+        "role" : "admin"
+    },
+    {
+        "id" : 2,
+        "username" : "Ranggafalih Arsyanda",
+        "password" : "rangga123",
+        "role" : "user"
+    },
+    {
+        "id" : 3,
+        "username" : "Noval Fatriand",
+        "password" : "pale123",
+        "role" : "user"
+    },
+    {
+        "id" : 4,
+        "username" : "Sultan Zakki",
+        "password" : "sultan123",
+        "role" : "user"
+    }
+]

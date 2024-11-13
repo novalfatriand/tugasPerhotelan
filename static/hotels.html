@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Hotel</title>
+</head>
+<body>
+    <h1>Daftar Hotel</h1>
+    <ul id="hotel-list"></ul>
+
+    <script>
+        fetch('/hotels')
+            .then(response => response.json())
+            .then(hotels => {
+                const list = document.getElementById('hotel-list');
+                hotels.forEach(hotel => {
+                    const item = document.createElement('li');
+                    item.innerHTML = `
+                        <h2>${hotel.name}</h2>
+                        <p>Location: ${hotel.location}</p>
+                        <p>Price per night: ${hotel.price_per_night}</p>
+                        <a href="/hotel/${hotel.id}">Lihat Detail</a>
+                    `;
+                    list.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>

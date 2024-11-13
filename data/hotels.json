@@ -1,0 +1,15 @@
+[
+    {
+        "id" : 1,
+        "name" : "Apurva Kempinski",
+        "location" : "Ubud, Bali",
+        "price_per_night" : 500000
+    },
+    {
+        "id": 2,
+        "name": "Hotel Example",
+        "location": "City Center",
+        "price_per_night": 500000
+    }
+      
+]

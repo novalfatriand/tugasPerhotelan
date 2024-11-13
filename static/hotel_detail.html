@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hotel</title>
+</head>
+<body>
+    <h1>Detail Hotel</h1>
+    <div id="hotel-detail"></div>
+    <a href="/booking">Pesan Hotel Ini</a>
+
+    <script>
+        const hotelId = window.location.pathname.split('/').pop();
+        fetch(`/hotel/${hotelId}`)
+            .then(response => response.json())
+            .then(hotel => {
+                const detail = document.getElementById('hotel-detail');
+                detail.innerHTML = `
+                    <h2>${hotel.name}</h2>
+                    <p>Location: ${hotel.location}</p>
+                    <p>Price per night: ${hotel.price_per_night}</p>
+                `;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+[
+    {
+        "id" : 1,
+        "hotel_id" : 1,
+        "user_id" : 2,
+        "check_in" : "2023-01-01",
+        "check_out" : "2023-01-02",
+        "total_price" : 560000,
+        "confirmed" : false
+    }
+]

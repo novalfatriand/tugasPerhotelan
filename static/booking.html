@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Hotel</title>
+</head>
+<body>
+    <h1>Booking Hotel</h1>
+    <form id="booking-form">
+        <label>Check-in:</label>
+        <input type="date" name="check_in" required>
+        <br>
+        <label>Check-out:</label>
+        <input type="date" name="check_out" required>
+        <br>
+        <button type="submit">Book Now</button>
+    </form>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const data = new FormData(event.target);
+            const bookingData = {
+                hotel_id: window.location.pathname.split('/').pop(),
+                check_in: data.get('check_in'),
+                check_out: data.get('check_out')
+            };
+
+            fetch('/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bookingData)
+            })
+            .then(response => response.json())
+            .then(booking => {
+                alert("Booking berhasil! Lanjutkan ke halaman pembayaran.");
+                window.location.href = "/payment";
+            });
+        });
+    </script>
+</body>
+</html>
