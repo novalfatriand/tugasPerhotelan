@@ -3,7 +3,7 @@ package handlers
 import (
     "encoding/json"
     "net/http"
-    "hotel-booking/models"
+    // "hotel-booking/models"
     "strconv"
 )
 

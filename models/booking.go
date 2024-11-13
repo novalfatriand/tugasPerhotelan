@@ -1,6 +1,6 @@
 package models
 
-type User struct {
+type Booking struct {
 	ID			int		`json: "id"`
 	HotelID		int		`json: "hotel_id"`
 	UserID		int 	`json: "user_id"`

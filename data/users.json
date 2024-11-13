@@ -22,5 +22,11 @@
         "username" : "Sultan Zakki",
         "password" : "sultan123",
         "role" : "user"
+    },
+    {
+        "id" : 5,
+        "username" : "testing",
+        "password" : "testing",
+        "role" : "user"
     }
 ]
